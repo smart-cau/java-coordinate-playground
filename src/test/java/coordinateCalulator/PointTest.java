@@ -31,4 +31,11 @@ public class PointTest {
         assertThat(x).isEqualTo((double) 1);
         assertThat(y).isEqualTo((double) 5);
     }
+
+    @Test
+    void equals_test() {
+        Point point = new Point(1, 5);
+
+        assertThat(point).isEqualTo(new Point(1, 5));
+    }
 }
