@@ -1,3 +1,42 @@
+# 좌표 계산기
+## 선 길이
+### 기능 요구사항
+---
+* 사용자가 점에 대한 좌표 정보를 입력하는 메뉴를 구성한다.
+* 좌표 정보는 괄호"(", ")"로 둘러쌓여 있으며 쉼표(,)로 x값과 y값을 구분한다.
+* X, Y좌표 모두 최대 24까지만 입력할 수 있다.
+* 입력 범위를 초과할 경우 에러 문구를 출력하고 다시 입력을 받는다.
+* 정상적인 좌표값을 입력한 경우, 해당 좌표에 특수문자를 표시한다.
+* 좌표값을 두 개 입력한 경우, 두 점을 있는 직선으로 가정한다. 좌표값과 좌표값 사이는 * '-' 문자로 구분한다.
+* 직선인 경우는 두 점 사이 거리를 계산해서 출력한다.
+
+### todo
+---
+* domain
+    * CoordinateCalculator
+        * `+` double lineDistance(Point, Point)
+    * Point
+        * `+` int x
+        * `+` int y
+        * `-` void pointValidation()
+        * `+` int getX()
+        * `+` int getY()
+    * Points
+        * `-` List<Point> points
+        * `+` int size()
+        * `+` Point get(int)
+* view
+    * InputView
+        * `+` String getInput()
+    * ResultView
+        * `+` void printResult(Points)
+        * `-` String printEvenResidual(int)
+        * `-` void printPoint(int, Points)
+        * `-` void printDistance(Points)
+* controller
+    * Main
+
+# 연료 주입
 ### 기능 요구사항
 ---
 우리 회사는 렌터카를 운영하고 있다. 현재 보유하고 있는 차량은 Sonata 2대, Avante 1대, K5 2대로 총 5대의 차량을 보유하고 있다.
