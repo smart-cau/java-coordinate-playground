@@ -9,6 +9,7 @@ import coordinateCalulator.domain.calculators.CalcualtorFactory;
 import coordinateCalulator.domain.calculators.Calculator;
 import coordinateCalulator.domain.calculators.LineCalculator;
 import coordinateCalulator.domain.calculators.RectangleCalculator;
+import coordinateCalulator.domain.calculators.TriangleCalculator;
 
 public class CoordinateCalulatorTest {
 
@@ -36,6 +37,16 @@ public class CoordinateCalulatorTest {
     }
 
     @Test
+    void trianglecualtorFactory_test() {
+        input = "(10,10)-(14,15)-(20,8)";
+        points = new Points(input);
+
+        Calculator calculator = CalcualtorFactory.getCalculator(points);
+
+        assertThat(calculator.getClass()).isEqualTo(new TriangleCalculator(points).getClass());
+    }
+
+    @Test
     void lineDistance_test() {
         input = "(0,0)-(5,5)";
         points = new Points(input);
@@ -53,5 +64,14 @@ public class CoordinateCalulatorTest {
         Calculator calculator = CalcualtorFactory.getCalculator(points);
 
         assertThat(calculator.getResult()).isEqualTo(96, offset(0.0001));
+    }
+
+    @Test
+    void triangleCalcualte_test() {
+        input = "(10,10)-(14,15)-(20,8)";
+        points = new Points(input);
+        Calculator calculator = CalcualtorFactory.getCalculator(points);
+
+        assertThat(calculator.getResult()).isEqualTo(29, offset(0.0001));
     }
 }
