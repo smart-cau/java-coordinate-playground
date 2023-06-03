@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Stream;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
+import java.util.Comparator;
 
 public class Points {
 
@@ -36,7 +37,11 @@ public class Points {
                     }
                 });
 
-        return points;
+        List<Point> sortedPoints = points.stream()
+                .sorted(Comparator.comparing(Point::getX))
+                .toList();
+
+        return sortedPoints;
     }
 
     public int size() {
