@@ -1,8 +1,9 @@
 package coordinateCalulator.view;
 
-import coordinateCalulator.domain.CoordinateCalulator;
 import coordinateCalulator.domain.Point;
 import coordinateCalulator.domain.Points;
+import coordinateCalulator.domain.calculators.CalcualtorFactory;
+import coordinateCalulator.domain.calculators.Calculator;
 
 public class ResultView {
     private static final int MAX_X = 24;
@@ -45,16 +46,19 @@ public class ResultView {
     }
 
     private static void printPoint(int y, Points points) {
+        int printedX = 0;
         for (int i = 0; i < points.size(); i++) {
             Point point = points.get(i);
             if (y == point.getY()) {
-                System.out.print("   ".repeat(point.getX()) + "😊");
+                System.out.print("   ".repeat(point.getX() - printedX) + "😊");
+                printedX = point.getX();
             }
         }
     }
 
     private static void printDistance(Points points) {
-        double distance = CoordinateCalulator.lineDistance(points.get(0), points.get(1));
-        System.out.println("두 점 사이의 거리는 " + distance);
+        Calculator calculator = CalcualtorFactory.getCalculator(points);
+        double result = calculator.getResult();
+        System.out.println(calculator.getMessage() + result);
     }
 }
