@@ -9,7 +9,7 @@ public class OutputView {
     private static final String ORIGIN = "+";
     private static final String HORIZONTAL_AXIS = "----";
     private static final String FOUR_BLANKS = "    ";
-    private static final String ERROR_MARK_OF_POINT = "😊";
+    private static final String MARK_OF_POINT = "😊";
 
     public static void showFigure(Figure figure) {
         drawVertical(figure);
@@ -37,7 +37,7 @@ public class OutputView {
     private static void drawPoint(Figure figure, int y) {
         for (int x = Point.MIN; x <= Point.MAX; x++) {
             if (figure.hasPoint(x, y))
-                System.out.print(ERROR_MARK_OF_POINT);
+                System.out.print(MARK_OF_POINT);
             System.out.print(FOUR_BLANKS);
         }
     }
@@ -73,7 +73,6 @@ public class OutputView {
             System.out.print(String.format("%4s", x));
             System.out.print(FOUR_BLANKS);
         }
-        //
     }
 
     private static void getAreaInfo(Figure figure) {
