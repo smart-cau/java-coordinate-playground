@@ -30,7 +30,7 @@ public abstract class AbstractFigure implements Figure {
             return true;
         if (o == null || this.getClass() != o.getClass())
             return false;
-        Line other = (Line) o;
+        Figure other = (Figure) o;
         Points otherPoints = other.getPoints();
         return this.getPoints().equals(otherPoints);
     }
