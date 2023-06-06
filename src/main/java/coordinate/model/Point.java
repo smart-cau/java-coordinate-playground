@@ -10,7 +10,7 @@ public class Point {
     public static final int MIN = 1;
     public static final int MAX = 24;
 
-    private static final String EXCEPTION_MESSAGE = (MIN - 1) + "과 " + (MAX - 1) + " 사이의 정수를 입력해주세요";
+    private static final String ERROR_RANGE_EXCEED = (MIN - 1) + "과 " + (MAX - 1) + " 사이의 정수를 입력해주세요";
 
     public Point(int x, int y) {
         coordinateValueValidation(x, y);
@@ -20,7 +20,7 @@ public class Point {
 
     private void coordinateValueValidation(int x, int y) {
         if (exceedRange(x) || exceedRange(y))
-            throw new IllegalArgumentException(EXCEPTION_MESSAGE);
+            throw new IllegalArgumentException(ERROR_RANGE_EXCEED);
     }
 
     private boolean exceedRange(int coordinate) {
