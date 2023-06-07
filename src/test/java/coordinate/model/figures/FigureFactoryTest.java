@@ -6,18 +6,20 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 
 import coordinate.model.Point;
+import coordinate.model.Points;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class FigureFactoryTest {
-    List<Point> points = new ArrayList<>();
+    List<Point> pointsArg = new ArrayList<>();
 
     @Test
     void line_test() {
-        points.add(new Point(1, 2));
-        points.add(new Point(3, 4));
+        pointsArg.add(new Point(1, 2));
+        pointsArg.add(new Point(3, 4));
+        Points points = new Points(pointsArg);
 
-        Figure line = FigureFactory.getFigure(points);
+        Figure line = FigureFactory.getFigure(pointsArg);
         assertThat(line).isEqualTo(new Line(points));
     }
 }

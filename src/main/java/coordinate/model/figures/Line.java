@@ -1,7 +1,5 @@
 package coordinate.model.figures;
 
-import java.util.List;
-
 import coordinate.model.Point;
 import coordinate.model.Points;
 
@@ -9,7 +7,7 @@ public class Line extends AbstractFigure {
 
     private static final String LINE_MESSAGE = "두 점 사이의 거리는 ";
     
-    public Line(List<Point> points) {
+    public Line(Points points) {
         super(points);
     }
 

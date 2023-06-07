@@ -1,17 +1,16 @@
 package coordinate.model.figures;
 
-import java.util.List;
+
 import java.util.Objects;
 
-import coordinate.model.Point;
 import coordinate.model.Points;
 
 public abstract class AbstractFigure implements Figure {
 
     private final Points points;
 
-    public AbstractFigure(List<Point> points) {
-        this.points = new Points(points);
+    public AbstractFigure(Points points) {
+        this.points = points;
     }
 
     @Override
