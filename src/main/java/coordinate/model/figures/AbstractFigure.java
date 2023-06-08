@@ -1,8 +1,6 @@
 package coordinate.model.figures;
 
-
 import java.util.Objects;
-
 import coordinate.model.Points;
 
 public abstract class AbstractFigure implements Figure {
