@@ -1,7 +1,9 @@
 package coordinate.model;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.junit.jupiter.api.Test;
 
@@ -86,5 +88,35 @@ public class PointsTest {
 
         assertThat(points.anyMatch(1, 2)).isTrue();
         assertThat(points.anyMatch(4, 2)).isFalse();
+    }
+
+    @Test
+    void getXuniqueValues_test() {
+        pointList.add(new Point(1, 2));
+        pointList.add(new Point(2, 2));
+        
+        points = new Points(pointList);
+       
+        Set<Integer> uniqueXvalues = new HashSet<>();
+       
+        uniqueXvalues.add(1);
+        uniqueXvalues.add(2);
+        
+        assertThat(points.getXuniqueValues().equals(uniqueXvalues)).isTrue();
+    }
+
+    @Test
+    void getYuniqueValues_test() {
+        pointList.add(new Point(1, 2));
+        pointList.add(new Point(2, 3));
+        
+        points = new Points(pointList);
+       
+        Set<Integer> uniqueYvalues = new HashSet<>();
+       
+        uniqueYvalues.add(3);
+        uniqueYvalues.add(2);
+        
+        assertThat(points.getYuniqueValues().equals(uniqueYvalues)).isTrue();
     }
 }

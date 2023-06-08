@@ -3,6 +3,9 @@ package coordinate.model;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
+
+import static java.util.stream.Collectors.toSet;
 
 public class Points {
 
@@ -38,6 +41,18 @@ public class Points {
     public boolean anyMatch(int x, int y) {
         return this.points.stream()
                 .anyMatch((point) -> point.isSame(x, y));
+    }
+
+    public int size() {
+        return this.points.size();
+    }
+
+    public Set<Integer> getXuniqueValues() {
+        return this.points.stream().map(point -> point.getX()).collect(toSet());
+    }
+
+    public Set<Integer> getYuniqueValues() {
+        return this.points.stream().map(point -> point.getY()).collect(toSet());
     }
 
     @Override
