@@ -2,6 +2,7 @@ package coordinate.model.figures;
 
 import java.util.Set;
 
+import coordinate.model.Point;
 import coordinate.model.Points;
 
 public class Rectangular extends AbstractFigure {
@@ -16,8 +17,8 @@ public class Rectangular extends AbstractFigure {
     }
 
     private void rectangleValidation(Points points) {
-        Set<Integer> uniqueXvalues = points.getXuniqueValues();
-        Set<Integer> uniqueYvalues = points.getYuniqueValues();
+        Set<Integer> uniqueXvalues = points.getUniqueValues(Point::getX);
+        Set<Integer> uniqueYvalues = points.getUniqueValues(Point::getY);
 
         if (hasMoreThanTwo(uniqueXvalues) || hasMoreThanTwo(uniqueYvalues))
             throw new IllegalArgumentException(ERROR_WRONG_FORM);
@@ -29,8 +30,8 @@ public class Rectangular extends AbstractFigure {
 
     @Override
     public double area() {
-        Set<Integer> uniqueXvalues = getPoints().getXuniqueValues();
-        Set<Integer> uniqueYvalues = getPoints().getYuniqueValues();
+        Set<Integer> uniqueXvalues = getPoints().getUniqueValues(Point::getX);
+        Set<Integer> uniqueYvalues = getPoints().getUniqueValues(Point::getY);
 
         int width = uniqueValuesDiff(uniqueXvalues);
         int height = uniqueValuesDiff(uniqueYvalues);

@@ -91,32 +91,21 @@ public class PointsTest {
     }
 
     @Test
-    void getXuniqueValues_test() {
-        pointList.add(new Point(1, 2));
+    void getUniqueValues_test() {
+        pointList.add(new Point(1, 3));
         pointList.add(new Point(2, 2));
-        
+
         points = new Points(pointList);
-       
+
         Set<Integer> uniqueXvalues = new HashSet<>();
-       
         uniqueXvalues.add(1);
         uniqueXvalues.add(2);
-        
-        assertThat(points.getXuniqueValues().equals(uniqueXvalues)).isTrue();
-    }
 
-    @Test
-    void getYuniqueValues_test() {
-        pointList.add(new Point(1, 2));
-        pointList.add(new Point(2, 3));
-        
-        points = new Points(pointList);
-       
         Set<Integer> uniqueYvalues = new HashSet<>();
-       
         uniqueYvalues.add(3);
         uniqueYvalues.add(2);
-        
-        assertThat(points.getYuniqueValues().equals(uniqueYvalues)).isTrue();
+
+        assertThat(points.getUniqueValues(Point::getX).equals(uniqueXvalues)).isTrue();
+        assertThat(points.getUniqueValues(Point::getY).equals(uniqueYvalues)).isTrue();
     }
 }

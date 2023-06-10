@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.function.Function;
 
 import static java.util.stream.Collectors.toSet;
 
@@ -47,12 +48,8 @@ public class Points {
         return this.points.size();
     }
 
-    public Set<Integer> getXuniqueValues() {
-        return this.points.stream().map(point -> point.getX()).collect(toSet());
-    }
-
-    public Set<Integer> getYuniqueValues() {
-        return this.points.stream().map(point -> point.getY()).collect(toSet());
+    public Set<Integer> getUniqueValues(Function<Point, Integer> getter) {
+        return this.points.stream().map(getter).collect(toSet());
     }
 
     @Override
