@@ -35,4 +35,18 @@ public class FigureFactoryTest {
         Figure rectangular = FigureFactory.getFigure(pointsArg);
         assertThat(rectangular).isEqualTo(new Rectangular(points));
     }
+
+    @Test
+    public void triangle_test() {
+        List<Point> pointsArg = new ArrayList<>();
+        pointsArg.add(new Point(10, 10));
+        pointsArg.add(new Point(14, 15));
+        pointsArg.add(new Point(20, 8));
+
+        Points points = new Points(pointsArg);
+
+        Figure triangle = FigureFactory.getFigure(pointsArg);
+
+        assertThat(triangle).isEqualTo(new Triangle(points));
+    }
 }
