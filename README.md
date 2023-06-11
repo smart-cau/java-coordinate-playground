@@ -1,3 +1,43 @@
+# 좌표 계산기
+## 선 길이
+### 기능 요구사항
+---
+* 사용자가 점에 대한 좌표 정보를 입력하는 메뉴를 구성한다.
+* 좌표 정보는 괄호"(", ")"로 둘러쌓여 있으며 쉼표(,)로 x값과 y값을 구분한다.
+* X, Y좌표 모두 최대 24까지만 입력할 수 있다.
+* 입력 범위를 초과할 경우 에러 문구를 출력하고 다시 입력을 받는다.
+* 정상적인 좌표값을 입력한 경우, 해당 좌표에 특수문자를 표시한다.
+* 좌표값을 두 개 입력한 경우, 두 점을 있는 직선으로 가정한다. 좌표값과 좌표값 사이는 * '-' 문자로 구분한다.
+* 직선인 경우는 두 점 사이 거리를 계산해서 출력한다.
+
+### 내 코드와 다른 점
+    * 모든 정적인 값은 static constant로 관리. 에러 메세지까지!
+    * 입력과 객체의 생성에 대한 자세한 validation 진행
+    * try - catch와 error resilience 있는 구현
+    * 코드를 여러 method로 작고 명확하게 쪼갬
+    * model 객체들을 각각의 개념에 부합하게 equals() method를 재정의 함
+    * interface로 다형성 확보와 abstract class로 중복을 제거함
+    * domain을 확실히 분리
+        * 내 코드 = 사용자 입력과 points 생성은 서로 도메인이 다름에도 Points에서 한번에 진행
+        * 여기 코드 = 사용자 입력에 대한 검증과 points 생성을 위한 과정을 InputView에서 진행
+    * `Function interface`를 활용해 메서드 또는 생성자를 일급 객체로 활용해 유연한 코드 작성
+
+### todo
+---
+* model
+    * Figure(interface)
+    * AbstractFigure implements Figure
+    * Point
+    * Points
+    * Line extends AbstractFigure
+    * Rectangle extends AbstractFigure
+    * Triangle extends AbstractFigure
+* view
+    * InputView
+    * OutputView
+* controller
+    * CoordinateCalculatorController
+
 ### 기능 요구사항
 ---
 우리 회사는 렌터카를 운영하고 있다. 현재 보유하고 있는 차량은 Sonata 2대, Avante 1대, K5 2대로 총 5대의 차량을 보유하고 있다.
